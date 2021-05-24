@@ -21,5 +21,17 @@ module.exports ={
         }catch(err){
             res.json({message: err})
         }
+    },
+    updateMakanan: async (req, res) => {
+        const id = req.params.makananId
+        try{
+            const makananUpdate = await Makanan.updateOne({_id: id}, {
+                nama: req.body.nama,
+                jenis: req.body.jenis
+            })
+            res.json(makananUpdate)
+        }catch(err){
+            res.json({message: err})
+        }
     }
 }
