@@ -13,5 +13,13 @@ module.exports ={
         } catch(err){
             res.json({message: err})
         }
+    },
+    getMakanan: async (req, res) => {
+        try {
+            const makanan = await Makanan.find()
+            res.json(makanan)
+        }catch(err){
+            res.json({message: err})
+        }
     }
 }
